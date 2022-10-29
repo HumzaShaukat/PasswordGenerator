@@ -10,7 +10,8 @@ When the "Generate Password" button is pressed, a series of prompts will appear 
 
 ## Mock-Up
 
-Here is a screenshot ![demo](Assets/demo.JPG) of the deployed application.
+The deployed webpage can be found [here](https://humzashaukat.github.io/PasswordGenerator/).  
+![demo](Assets/demo.JPG)
 
 ## Credits
 
