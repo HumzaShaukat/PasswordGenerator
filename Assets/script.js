@@ -1,54 +1,64 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var passwordLength = 0;
-var incLC = true;
-var incUC = true;
-var incNum = true;
-var incSpec = true;
 
+// var incLC = false;
+// var incUC = false;
+// var incNum = false;
+// var incSpec = false;
 function generatePassword() {
+  var LC = 'N';
+  var UC = 'N';
+  var num = 'N';
+  var spec = 'N';
+  var genPassword = "";
+  var charList = "";
   passwordLength = window.prompt("Choose a password length between 8 and 128 characters.");
   while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     passwordLength = window.prompt("Please choose a valid password length between 8 and 128 characters")
   }
-  var LC = window.prompt("Do you want to include lowercase letters? (Y or N)");
-  while (LC != "Y" && LC !="N") {
-    LC = window.prompt("Please answer a valid response.  Do you want to include lowercase letters? (Y or N)");
+  while (LC == "N" && UC == "N" && num == "N" && spec == "N") {
+    //Check for lowercase
+    LC = window.prompt("Do you want to include lowercase letters? (Y or N)");
+    while (LC != "Y" && LC !="N") {
+      LC = window.prompt("Please answer a valid response.  Do you want to include lowercase letters? (Y or N)");
+    }
+    //Check for uppercase
+    UC  = window.prompt("Do you want to include uppercase letters? (Y or N)");
+    while (UC != "Y" && UC !="N") {
+      UC = window.prompt("Please answer a valid response.  Do you want to include uppercase letters? (Y or N)");
+    }
+    //Check for numeric values
+    num = window.prompt("Do you want to include numeric characters? (Y or N)");
+    while (num != "Y" && num !="N") {
+      num = window.prompt("Please answer a valid response.  Do you want to include numeric characters? (Y or N)");
+    }
+    //Check for special characters
+    spec = window.prompt("Do you want to include special characters? (Y or N)");
+    while (spec != "Y" && spec !="N") {
+      spec = window.prompt("Please answer a valid response.  Do you want to include special characters? (Y or N)");
+    }
+    //Check if nothing is selected
+    if (LC == "N" && UC == "N" && num == "N" && spec == "N") {
+      window.alert("Please select at least one character type to include in the password.") 
+    }
   }
-  if (LC === "Y") {
-    incLC = true;
-  } else if (LC == "N") {
-    incLC = false;
+  if (LC == "Y") {
+    charList = charList.concat("abcdefghijklmnopqrstuvwxyz");
   }
-  var UC  = window.prompt("Do you want to include uppercase letters? (Y or N)");
-  while (UC != "Y" && UC !="N") {
-    UC = window.prompt("Please answer a valid response.  Do you want to include uppercase letters? (Y or N)");
+  if (UC == "Y") {
+    charList = charList.concat("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
   }
-  if (UC === "Y") {
-    incUC = true;
-  } else if (UC == "N") {
-    incUC = false;
+  if (num == "Y") {
+    charList = charList.concat("1234567890");
   }
-  var num = window.prompt("Do you want to include numeric characters? (Y or N)");
-  while (num != "Y" && num !="N") {
-    num = window.prompt("Please answer a valid response.  Do you want to include numeric characters? (Y or N)");
+  if (spec == "Y") {
+    charList = charList.concat("' !\"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~");
   }
-  if (num === "Y") {
-    incNum = true;
-  } else if (num == "N") {
-    incNum = false;
+  for (var i = 0; i < passwordLength; i++) {
+    genPassword = genPassword.concat(charList[Math.floor(Math.random() * charList.length)]); 
   }
-  var spec = window.prompt("Do you want to include special characters? (Y or N)");
-  while (spec != "Y" && spec !="N") {
-    LC = window.prompt("Please answer a valid response.  Do you want to include special characters? (Y or N)");
-  }
-  if (spec === "Y") {
-    incSpec = true;
-  } else if (LC == "N") {
-    incSpec = false;
-  }
-
-  return "generated password";
+  return genPassword;
 }
 
 // Write password to the #password input
@@ -61,10 +71,9 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-generatePassword();
-window.alert(passwordLength);
-window.alert(incLC);
-window.alert(incUC);
-window.alert(incNum);
-window.alert(incSpec);
+// generatePassword();
+// window.alert(passwordLength);
+// window.alert(incLC);
+// window.alert(incUC);
+// window.alert(incNum);
+// window.alert(incSpec);
