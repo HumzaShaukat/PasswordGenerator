@@ -10,11 +10,11 @@ When the "Generate Password" button is pressed, a series of prompts will appear 
 
 ## Mock-Up
 
-Here is a screenshot of the deployed application.
+Here is a screenshot ![demo](Assets/demo.JPG) of the deployed application.
 
 ## Credits
 
-Starter code was found here [github](https://github.com/RutgersCodingBootcamp/RUT-VIRT-FSF-PT-10-2022-U-LOLC/tree/main/03-JavaScript/02-Challenge) at the Rutgers Coding Bootcamp Github Repository.
+Starter code was found [here](https://github.com/RutgersCodingBootcamp/RUT-VIRT-FSF-PT-10-2022-U-LOLC/tree/main/03-JavaScript/02-Challenge) at the Rutgers Coding Bootcamp Github Repository.
 
 ## License
 
